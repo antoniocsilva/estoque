@@ -65,6 +65,7 @@ class AuthController extends Controller
         ]);
     }
 
+    //Apos logout o sistema  direciona para a pagina de listagens de produtos.
     public function getLogout()
     {
         Auth::logout();

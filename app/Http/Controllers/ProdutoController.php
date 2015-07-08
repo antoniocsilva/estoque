@@ -67,10 +67,18 @@ class ProdutoController extends Controller
         $produto->quantidade = Request::input('quantidade');
         $produto->update();
 
+
+
         return redirect()->action('ProdutoController@lista');
         
         // return redirect()
         //     ->action('ProdutoController@lista')
         //     ->withInput(Request::only('id'));
     }
+
+    // public function altera($id, ProdutosRequest $request){
+    // $produto = Produto::find($id);
+    // $produto->update = $request->all();
+    // return redirect()->action('ProdutoController@lista');
+    // }
 }

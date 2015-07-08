@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/', 'ProdutoController@lista');
+
 Route::get('/produtos', 'ProdutoController@lista');
 
 Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0-9]+');
