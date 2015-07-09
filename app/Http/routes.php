@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
 Route::get('/', 'ProdutoController@lista');
 
 Route::get('/produtos', 'ProdutoController@lista');
@@ -22,17 +23,15 @@ Route::post('/produtos/adiciona/', 'ProdutoController@adiciona');
 
 Route::get('/produtos/json', 'ProdutoController@listaJSon');
 
-Route::get('produtos/remove/{id}', 'ProdutoController@remove');
+Route::get('/produtos/remove/{id}', 'ProdutoController@remove');
 
-Route::get('produtos/atualiza/{id}', 'ProdutoController@atualiza');
+Route::get('/produtos/atualiza/{id}', 'ProdutoController@atualiza');
 
-Route::post('produtos/altera/{id}', 'ProdutoController@altera');
+Route::post('/produtos/altera/{id}', 'ProdutoController@altera');
 
 Route::get('/home', 'HomeController@index');
 
 Route::get('/login', 'LoginController@login');
-
-//Route::get('/logout', 'LoginController@logout');
 
 Route::controllers(
 	[

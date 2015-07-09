@@ -5,6 +5,11 @@
 @else
 <h1>Listagem de produtos</h1>
 		<table class="table table-striped table-bordered table-hover">
+			<th>Nome</th>
+			<th>Valor</th>
+			<th>Decrição</th>
+			<th>Quantidade</th>
+			<th colspan="3">Ações</th>
 			@foreach ($produtos as $p)
 			<tr class="{{$p->quantidade<=1 ? 'danger' : ''}}">
 				<td>{{ $p->nome }}</td>

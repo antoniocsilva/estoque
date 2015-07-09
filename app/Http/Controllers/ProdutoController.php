@@ -10,7 +10,7 @@ class ProdutoController extends Controller
     public function __construct()
     {
         $this->middleware('auth',
-            ['only'=> ['adiciona', 'remove', 'altera']]);
+            ['only'=> ['adiciona', 'remove', 'atualiza', 'novo']]);
     }
 
     public function lista(){
@@ -53,32 +53,13 @@ class ProdutoController extends Controller
 
         $produto = Produto::find($id);
         return view('produto.atualiza')->with('produto', $produto);
-
-        // $produto = Produto::find($id);
-        // $produto->update();
-        // return redirect()->action('ProdutoController@lista');
     }
 
-    public function altera($id){
-        $produto = Produto::find($id);
-        $produto->nome = Request::input('nome');
-        $produto->descricao = Request::input('descricao');
-        $produto->valor = Request::input('valor');
-        $produto->quantidade = Request::input('quantidade');
-        $produto->update();
-
-
-
+    //Uma forma mais simples de atualizar um registro
+    public function altera(ProdutosRequest $request, $id){
+        $produto = Produto::find($id)->update($request->all());
         return redirect()->action('ProdutoController@lista');
         
-        // return redirect()
-        //     ->action('ProdutoController@lista')
-        //     ->withInput(Request::only('id'));
     }
 
-    // public function altera($id, ProdutosRequest $request){
-    // $produto = Produto::find($id);
-    // $produto->update = $request->all();
-    // return redirect()->action('ProdutoController@lista');
-    // }
 }
